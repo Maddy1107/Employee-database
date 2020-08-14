@@ -1,0 +1,42 @@
+{% extends 'personal/home4.html' %}
+
+{% block content %}
+
+<style>
+    hr
+    {
+        display: block;
+        width : 50%;
+        border-color: black;
+        padding: 2px;
+        border-top: dotted;
+    }
+</style>
+<CENTER>
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h1>WELCOME, ADMIN</h1>
+            </div>
+
+        <div class="panel-body">
+
+                <h4>VILL: FATEPUR,BEHARAMPORE<BR>DIST.:MURSHIDABAD</h4>
+			<HR>
+				<h4>NH-34,KALIRHAT,NEAR FCI GODOWN,KRISHNAGAR-741184<BR>DIST.:NADIA</h4>
+
+        </div>
+
+        <div class="panel-footer">
+
+                {% csrf_token %}
+                <a href="{% url 'personal:employees1' %}" class="btn btn-info" role="button"/>VIEW</a>
+                <a href="/add/" class="btn btn-danger" role="button"/>ADD</a>
+                <a href="/admin/" class="btn btn-success" role="button"/>MAIN DATABASE</a>
+        </div>
+
+        </div>
+    </div>
+</CENTER>
+
+{% endblock %}

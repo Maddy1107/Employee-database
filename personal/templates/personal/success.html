@@ -1,0 +1,29 @@
+{% extends 'personal/home4.html' %}
+
+{% block content %}
+<center>
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3>ENTRY SUCCESSFUL</h3>
+            </div>
+
+        <div class="panel-body">
+
+                <h4>You successfully added the details of the employee</h4>
+
+        </div>
+
+        <div class="panel-footer">
+
+                {% csrf_token %}
+                <a href="{% url 'personal:index1' %}" class="btn btn-info" role="button"/>Go to Homepage</a>
+                <a href="{% url 'personal:employees1' %}" class="btn btn-danger" role="button"/>Go to View</a>
+
+        </div>
+
+        </div>
+    </div>
+
+</center>
+{% endblock %}

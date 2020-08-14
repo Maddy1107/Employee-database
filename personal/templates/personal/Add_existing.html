@@ -1,0 +1,58 @@
+{% extends 'personal/home4.html' %}
+
+{% block content %}
+<style>
+    panel-heading
+    {
+        width: 50px;
+    }
+    table,tr,td
+    {
+        border: 3px solid black;
+        text-align: center;
+    }
+    p.uppercase
+    {
+        text-transform: uppercase;
+    }
+    hr
+    {
+        display: block;
+        width: 50%;
+        border-color: black;
+        padding: 2px;
+        border-top: dotted;
+    }
+    a
+    {
+       text-decoration: none;
+    }
+</style>
+<center>
+    <strong><h3><b><p class="uppercase">ADDING MORE DETAILS OF EMPLOYEE : {{ emp.Employee_name }}</p></b></h3></strong>
+    <hr>
+    <div class="panel-group">
+  <div class="panel panel-primary">
+      <div class="panel-heading">
+            <h3>Choose which detail you want to add again!!</h3>
+      </div>
+
+      <div class="panel-body">
+
+          <table class="table table-responsive">
+              <thead>
+              <tr class="danger">
+                  <td><a href="{% url 'personal:fam-add1' emp.Employee_id %} "><h4>Family</h4></a></td>
+                  <td><a href="{% url 'personal:emer-add1' emp.Employee_id %} "><h4>Emergency Contacts</h4></a></td>
+                  <td><a href="{% url 'personal:edu-add1' emp.Employee_id %} "><h4>Qualification</h4></a></td>
+                  <td><a href="{% url 'personal:ref-add1' emp.Employee_id %} "><h4>References</h4></a></td>
+              </tr>
+              </thead>
+          </table>
+
+      </div>
+        </div>
+  </div>
+    </div>
+</center>
+{% endblock %}

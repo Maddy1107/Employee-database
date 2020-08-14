@@ -1,0 +1,232 @@
+<html>
+     <head>
+         <title>Title</title>
+         <style type="text/css">
+             body {
+                 font-weight: 200;
+                 font-size: 14px;
+             }
+             .header {
+                 font-size: 20px;
+                 font-weight: 100;
+                 text-align: center;
+                 color: #007cae;
+             }
+             .title {
+                 font-size: 22px;
+                 font-weight: 100;
+                /* text-align: right;*/
+                padding: 10px 20px 0px 20px;
+             }
+             .title span {
+                 color: #007cae;
+             }
+             .details {
+                 padding: 10px 20px 0px 20px;
+                 text-align: left !important;
+                 /*margin-left: 40%;*/
+             }
+             .hrItem {
+                 border: none;
+                 height: 1px;
+                 /* Set the hr color */
+                 color: #333; /* old IE */
+                 background-color: #fff; /* Modern Browsers */
+             }
+             .date
+             {
+                 text-align: right;
+             }
+             table,td,tr
+             {
+                 border:1px solid blue;
+                 width:auto;
+             }
+             .t
+             {
+                 empty-cells: hide;
+                 height:50%;
+                 border:1px solid black;
+             }
+         </style>
+     </head>
+     <body>
+         <div class='wrapper'>
+             <div class='header'>
+                 <p class='title'>OFFER LETTER </p>
+             </div>
+         <div>
+         <div class='details'>
+
+             <div class="date">DATE : <u>{% now "d-m-y" %}.</u></div><br>
+
+<b><u>{{ emp1.Employee_name }}</u></b><br>
+<b><u>{{ emp1.Fathers_name }}</u></b><br>
+<b><u>{{ emp1.Present_Address }}</u></b><br><br>
+
+
+
+
+Dear Mr. {{ emp1.Employee_name }},<br>
+<center><b><u>Offer of Appointment</u></b></center>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspWith reference to your request for appointment in our organisation, we have pleasure in offering you the post of
+
+                         {% for empl in emp1.employment_set.all %}
+
+                         <b>{{ empl.Designation }}</b>
+
+                         {% endfor %}
+with effect from
+
+                         {% for empl in emp1.employment_set.all %}
+
+                         <b>{{ empl.Date_of_Joining }}</b>
+
+                         {% endfor %}
+under the following terms and conditions:<br>
+<br>(1)	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThere will be a probation period for 6 months from the date of joining, or such other extended periods, as may be decided by the Management. At the end of the probation period, provided your services have been found satisfactory, the company will confirm your appointment, in writing.
+<br><br>(2)	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspYou shall be eligible for the following remunerations:<br>
+
+
+             <table align="center">
+                 <tbody>
+                 <tr>
+                     <td style="width:30%; text-align: left; padding:2px;">Basic Salary</td>
+                     <td style="width:6%; text-align: center;">Rs.</td>
+                     <td style="width:8%; text-align: center;">
+                         {% for empl in emp1.employment_set.all %}
+
+                         <b>{% widthratio empl.Present_Salary 2 1 as basic %}</b>
+                         <b>{{ basic }}</b>
+
+                         {% endfor %}
+                     </td>
+                 </tr>
+                 </tbody>
+                 <tr>
+                     <td style="width:30%; text-align: left; padding:2px;">House Rent Allowance</td>
+                     <td style="width:6%; text-align: center;">Rs.</td>
+                     <td style="width:8%; text-align: center;">
+                         {% for empl in emp1.employment_set.all %}
+
+                         <b>{% widthratio empl.Present_Salary  4 1 %}</b>
+
+                         {% endfor %}
+                     </td>
+                 </tr>
+                 <tr>
+                     <td style="width:30%; text-align: left; padding:2px;">Refreshment Allowance</td>
+                     <td style="width:6%; text-align: center;">Rs.</td>
+                     <td style="width:8%; text-align: center;">
+                         {% for empl in emp1.employment_set.all %}
+
+                         <b>{% widthratio empl.Present_Salary  8 1 %}</b>
+
+                         {% endfor %}
+                     </td>
+                 </tr>
+                 <tr>
+                     <td style="width:30%; text-align: left; padding:2px;">Conveyence Allowance</td>
+                     <td style="width:6%; text-align: center;">Rs.</td>
+                     <td style="width:8%; text-align: center;">
+                         {% for empl in emp1.employment_set.all %}
+
+                         <b>{% widthratio empl.Present_Salary  8 1 %}</b>
+
+                         {% endfor %}
+                     </td>
+                 </tr>
+                 <tr>
+                     <td style="width:30%; text-align: left; padding:2px;">Total</td>
+                     <td style="width:6%; text-align: center;">Rs.</td>
+                     <td style="width:8%; text-align: center;">
+                         {% for empl in emp1.employment_set.all %}
+
+                         <b>{{ empl.Present_Salary }}</b>
+
+                         {% endfor %}
+                     </td>
+                 </tr>
+                 </thead>
+             </table>
+
+<br>
+
+Remunerations mentioned above will be subject to statutory deductions like Provident Fund, Profession Tax etc as per rates applicable from time to time.
+             <br><br><u><i>Please note that your salary and allowances are strictly confidential.</i></u>
+<br><br>Increments are not automatic, but will be based solely on efficient, satisfactory and loyal discharge of duties as assessed by our performance appraisal system.
+<br><br>(3)	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDuring the probation period, your services are terminable by 7 (Seven) days’ notice, without assigning any reason, on either side or salary in lieu thereof. On confirmation, the employment will be terminable on One month's notice on either side or salary in lieu thereof.
+<br><br>(4)	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspYou may be required to do shift duty including night duty as may be required. The management shall be at liberty to fix, vary or modify your duty hours from time to time. You may be transferred to anywhere in India and/or to any other sister/ associate concerns at the sole discretion of the management.
+<br><br>(5)	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspYour designation is merely indicative of the responsibilities that you are required to carry out. The company shall be entitled to require you, at any time, to perform any other administrative, managerial, supervisory or other functions and you shall be bound to carry out such functions.
+
+
+<br><br><br>(6)	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDuring the probation period, you shall be entitled to only 3 days Casual leave. However, on completion of the probation period and subsequent confirmed appointment you shall be entitled to Earn Leave and Sick Leave as per the rules of the organisation.
+<br><br>(7)	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspYou will devote full time to the work of the company and shall not undertake any direct/indirect business or work, honorary or remunerative, except with the express written permission of the company.
+<br><br>(8)	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAll information available in the company used for the purpose of business done by the company is strictly confidential and you will not disclose the said information without the authority of the company to anyone other than the company's authorized officers. You shall maintain and keep in safe custody all documents and records as may be issued to you or may come in your possession and shall return the same as and when required.
+<br><br>(9)	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThis offer is subject to the receipt of satisfactory reports from the referees, not your relatives, whose names are to be furnished by you. The referees shall have to be acceptable to the organisation.
+             <br><b>(10)	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThis offer letter is subject to your obtaining a NOC/RELEASE LETTER from your present employer which please note.</b>
+<br><br>(11)	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThe appointment is also subject to your medical (physical and mental) fitness. The company reserves the right to ask you to undergo medical examination if and when considered necessary.
+<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPlease return the duplicate copy of this letter duly signed in token of acceptance of the terms and conditions of the offer.
+<br><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPlease note that you are to report at our
+                         {% for empl in emp1.employment_set.all %}
+
+                         <b>{{ empl.Location }}</b>
+
+                         {% endfor %}
+Office at 10 a.m. on
+                         {% for empl in emp1.employment_set.all %}
+
+                         <b>{{ empl.Date_of_Joining }}</b>
+
+                         {% endfor %}
+Please carry a recent passport sized colour photograph and copies of mark sheets/ certificates in respect of all your educational qualifications at the time of reporting.
+
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspYours truly,<br>
+             <div class="date"> For Vinayak Autotrade Pvt. Ltd.,<br><br></div>
+
+
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp(Srimanta Chakravarty)<br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAuthorised signatory<br>
+             <u><b><i><center>For office use only</center></i></b></u>
+<center>
+             <table>
+                 <tr>
+                     <th style="padding: 2px;">Employee Code</th>
+                     <th style="padding: 2px;">Joined On</th>
+                     <th style="padding: 2px;">Segment</th>
+                     <th style="padding: 2px;">Remarks</th>
+                 </tr>
+                 <tr class="t">
+                     <td style="padding: 2px;">
+                         <b>{{ emp1.Employee_id }}</b>
+                     </td>
+                     <td style="padding: 2px;">
+                     {% for empl in emp1.employment_set.all %}
+
+                     <b>{{ empl.Date_of_Joining }}</b>
+
+                     {% endfor %}
+                     </td>
+                     <td style="padding: 2px;">
+                     {% for empl in emp1.employment_set.all %}
+
+                     <b>{{ empl.Department }}</b>
+
+                     {% endfor %}
+                     </td>
+                     <td style="padding: 2px;">
+
+                     </td>
+
+                 </tr>
+             </table>
+</center>
+
+
+
+
+             <hr class='hrItem' />
+         </div>
+     </div>
+     </body>
+ </html>

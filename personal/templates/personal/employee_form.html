@@ -1,0 +1,24 @@
+{% extends 'personal/home4.html' %}
+{% block content %}
+{% load bootstrap %}
+
+<div class = "container-fluid">
+
+    <form role="form"  action = " " method = "post" enctype="multipart/form-data">
+        <legend>PERSONAL DETAILS</legend>
+        {% csrf_token%}
+        {{ form|bootstrap_horizontal }}<br><br>
+        <div class = "form-group">
+            <div class = "col-sm-onset-5 col-sm-5">
+                <br>
+                <center>
+
+                        <button type = "submit" name="s&c" class = "btn btn-success">Save & Continue</button>
+
+                </center>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

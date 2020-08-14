@@ -1,0 +1,428 @@
+<html>
+     <head>
+         <title>Title</title>
+         <style type="text/css">
+             body {
+                 font-weight: 200;
+                 font-size: 14px;
+             }
+             .header {
+                 font-size: 20px;
+                 font-weight: 100;
+                 text-align: center;
+                 color: #007cae;
+             }
+             .title {
+                 font-size: 22px;
+                 font-weight: 100;
+                /* text-align: right;*/
+                padding: 10px 20px 0px 20px;
+             }
+             .title span {
+                 color: #007cae;
+             }
+             .details {
+                 padding: 10px 20px 0px 20px;
+                 text-align: left !important;
+                 /*margin-left: 40%;*/
+             }
+             .hrItem {
+                 border: none;
+                 height: 1px;
+                 /* Set the hr color */
+                 color: #333; /* old IE */
+                 background-color: #fff; /* Modern Browsers */
+             }
+            table,td,tr
+            {
+                border: 1px solid blue;
+                width: auto;
+                padding: 5px;
+            }
+         </style>
+     </head>
+     <body>
+         <div class='wrapper'>
+         <div>
+         <div class='details'>
+
+<center><b>VINAYAK AUTOTRADE PVT. LTD.<br>
+    Exit Interview Questionnaire</b></center><br><br>
+
+             <table align="center">
+                 <tr>
+                     <td style="padding:3px; width: 50%;">Name:<b>{{ emp1.Employee_name }}</b></td>
+                     <td style="padding:3px;  width: 50%;">Position: {% for empl in emp1.employment_set.all %}
+
+                                    <b>{{ empl.Designation }}</b>
+
+                                    {% endfor %}</td>
+                 </tr>
+                 <tr>
+                     <td style="padding:3px; width: 50%;">Department: {% for empl in emp1.employment_set.all %}
+
+                                    <b>{{ empl.Department }}</b>
+
+                                    {% endfor %}</td>
+                     <td style="padding:3px; width: 50%;">Name of immediate Manager: {% for empl in emp1.employment_set.all %}
+
+                                                    <b>{{ empl.Reporting_person }}</b>
+
+                                                    {% endfor %}</td>
+                 </tr>
+                 <tr>
+                     <td style="padding:5px; width: 50%;">Commencement Date:      </td>
+                     <td style="padding:3px; width: 50%;">Last Day of Employment: {% for empl in emp1.employment_set.all %}
+
+                                                    <b>{{ empl.Last_working_day }}</b>
+
+                                                    {% endfor %}</td><br>(Length of service):</td>
+                 </tr>
+             </table>
+
+
+<br><br>
+
+
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspWe have been informed of your intention to leave the Company. In order for us to improve our working environment at Vinayak, it is important that we provide you with the opportunity to give us feedback about your employment with the Company. The information you furnish will be used in summary form as a means to identify patterns or trends in the work environment at the Company. Your honesty is greatly appreciated, and your opinions are highly valued. If there is a particular item to which you do not feel comfortable responding, leave it blank and go on to the next. Thank you for your time and effort.
+
+<br><br>1.	Please rank the top five reasons that led to your decision to leave the Company.  Place a “1” in front of the item that is most important, a “2” in front of the next most important, and so on.  Do not use any number more than once.  If there are fewer than five reasons, rank just those reasons.
+<br><br>
+             <table>
+                 <tr>
+                     <td style="width: 70px"></td>
+                     <td>Higher salary</td>
+                 </tr>
+                 <tr>
+                     <td style="width: 70px"></td>
+                     <td>Dissatisfied with Remuneration and Benefits</td>
+                 </tr>
+                 <tr>
+                     <td style="width: 70px"></td>
+                     <td>Career advancement / change</td>
+                 </tr>
+                 <tr>
+                     <td style="width: 70px"></td>
+                     <td>Transportation problems</td>
+                 </tr>
+                 <tr>
+                     <td style="width: 70px"></td>
+                     <td>Lack of child care</td>
+                 </tr>
+                 <tr>
+                     <td style="width: 70px"></td>
+                     <td>Dissatisfaction with supervision / leadership</td>
+                 </tr>
+                 <tr>
+                     <td style="width: 70px"></td>
+                     <td>Received an employment offer without actively seeking another job</td>
+                 </tr>
+                 <tr>
+                     <td style="width: 70px"></td>
+                     <td>Lack of job security</td>
+                 </tr>
+                 <tr>
+                     <td style="width: 70px"></td>
+                     <td>Dissatisfied with organizational culture</td>
+                 </tr>
+                 <tr>
+                     <td style="width: 70px"></td>
+                     <td>Dissatisfied with work hours</td>
+                 </tr>
+                 <tr>
+                     <td style="width: 70px"></td>
+                     <td>Dissatisfied with job fulfillment</td>
+                 </tr>
+                 <tr>
+                     <td style="width: 50px"></td>
+                     <td>Dissatisfied with training and development opportunities</td>
+                 </tr>
+                 <tr>
+                     <td style="width: 90px"></td>
+                     <td>Leaving the employment market</td>
+                 </tr>
+                 <tr>
+                     <td colspan="2" style="border-right:none; padding:2px;"><b>Other Comments:</b></td>
+                 </tr>
+                 <tr>
+                     <td style="border-right:none "></td>
+                 </tr>
+                 <tr>
+                     <td style="border-right:none "></td>
+                 </tr>
+             </table>
+
+             <br><br>
+
+
+2.	Please rank the top five items listed below in their order of importance to you.  Place a “1” in front of the item that is most import to you, “2” in front of the next most important, and so on.  Do not use any number more than once.
+             <br><br>
+             <table>
+                 <tr>
+                     <td style="width: 70px"></td>
+                     <td>Having a good boss</td>
+                 </tr>
+                 <tr>
+                     <td style="width: 70px"></td>
+                     <td>Good salary</td>
+                 </tr>
+                 <tr>
+                     <td style="width: 70px"></td>
+                     <td>Good benefits</td>
+                 </tr>
+                 <tr>
+                     <td style="width: 70px"></td>
+                     <td>Opportunities to grow and learn professionally</td>
+                 </tr>
+                 <tr>
+                     <td style="width: 70px"></td>
+                     <td>A flexible working environment</td>
+                 </tr>
+                 <tr>
+                     <td style="width: 70px"></td>
+                     <td>Recognition for skills and accomplishments</td>
+                 </tr>
+                 <tr>
+                     <td style="width: 70px"></td>
+                     <td>Good relationships with co-workers</td>
+                 </tr>
+                 <tr>
+                     <td style="width: 90px"></td>
+                     <td>Working with up-to-date technology</td>
+                 </tr>
+                 <tr>
+                     <td colspan="2" style="border-right:none; padding:2px;"><b>Other Comments:</b></td>
+                 </tr>
+                 <tr>
+                     <td style="border-right:none "></td>
+                 </tr>
+                 <tr>
+                     <td style="border-right:none "></td>
+                 </tr>
+             </table>
+
+             <br><br>
+
+
+3.	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspIn this section, please assess supervision in your Division/Department. Please tick.
+
+             <table>
+                 <tr>
+                     <td></td>
+                     <th>Excellent</th>
+                     <th>Good</th>
+                     <th>Fair</th>
+                     <th>Poor</th>
+                 </tr>
+                 <tr>
+                     <td style="width: 800px">Provided feedback on my performance.</td>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                 </tr>
+                 <tr>
+                     <td style="width: 800px">Treated me with respect and courtesy.</td>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                 </tr>
+                 <tr>
+                     <td style="width: 800px">Led by example.</td>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                 </tr>
+                 <tr>
+                     <td style="width: 800px">Helped me solve problems.</td>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                 </tr>
+                 <tr>
+                     <td style="width: 800px">Was available when I needed help.</td>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                 </tr>
+                 <tr>
+                     <td style="width: 800px">Followed policies and practices and applied them fairly.</td>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                 </tr>
+                 <tr>
+                     <td style="width: 800px">Provided positive feedback and recognition.</td>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                 </tr>
+                 <tr>
+                     <td style="width: 800px">Resolved complaints and problems.</td>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                 </tr>
+                 <tr>
+                     <td style="width: 800px">Represented the position accurately when interviewed.</td>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                 </tr>
+                 <tr>
+                     <td style="width: 800px">Training opportunities were available inside the department.</td>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                 </tr>
+                 <tr>
+                     <td style="width: 800px">Training opportunities were available outside the department.</td>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                 </tr>
+                 <tr>
+                     <td colspan="2" style="border-right:none; padding:2px;"><b>Other Comments:<b></b></td>
+                 </tr>
+                 <tr>
+                     <td style="border-right:none "></td>
+                 </tr>
+                 <tr>
+                     <td style="border-right:none "></td>
+                 </tr>
+                 </tr>
+             </table>
+
+
+<br>
+
+
+4.	In this section, please assess your working conditions.<br><br>
+
+             <table>
+                 <tr>
+                     <td></td>
+                     <th>Excellent</th>
+                     <th>Good</th>
+                     <th>Fair</th>
+                     <th>Poor</th>
+                 </tr>
+                 <tr>
+                     <td style="width: 800px">My physical work area was appropriate for the work that I did.</td>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                 </tr>
+                 <tr>
+                     <td style="width: 800px">I had adequate materials to do my work (tools, computer, phones, etc).</td>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                 </tr>
+                 <tr>
+                     <td style="width: 800px">My work schedule was convenient.</td>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                 </tr>
+                 <tr>
+                     <td style="width: 800px">Overtime demands were reasonable.</td>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                 </tr>
+                 <tr>
+                     <td style="width: 800px">Relationship with co-workers.</td>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                 </tr>
+                 <tr>
+                     <td style="width: 800px">Relationship with customers (consignees, underwriters, agents / contractors)</td>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                 </tr>
+                 <tr>
+                     <td style="width: 800px">Office atmosphere and morale</td>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                 </tr>
+                 <tr>
+                     <td style="width: 800px">Adequate guidance in resolving work-related or personal problems.</td>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                 </tr>
+                 <tr>
+                     <td colspan="2" style="border-right:none; padding:2px;"><b>Other Comments:</b></td>
+                 </tr>
+                 <tr>
+                     <td style="border-right:none "></td>
+                 </tr>
+                 <tr>
+                     <td style="border-right:none "></td>
+                 </tr>
+             </table>
+
+<br><br>
+
+5.	Would you recommend this Company as a good place to work to a friend?<br><br>
+
+(     )  Yes &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	(     )  No <br><br>
+
+6.	Before making your decision to leave, did you investigate the possibility of a transfer?<br><br>
+
+(     )  Yes &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	(     )  No <br><br>
+
+7.	If you left for another position, are the job duties in your new position different?<br><br>
+
+(     )  Same &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	(     )  Different <br><br>
+
+
+
+8.	Under what circumstances would you have stayed at Vinayak?<br><br>
+
+	<br>______________________________________________________________________________________<br>
+
+9.	What did you like best about working in the Company?<br><br>
+
+	<br>______________________________________________________________________________________<br>
+
+10.	What did you like least about working in the Company?<br><br>
+
+	<br>______________________________________________________________________________________<br>
+
+11.	May we share your responses with your former Division / Department?<br><br>
+
+(     )  Yes &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	(     )  No<br><br>
+
+12.	Any additional comments?  We are particularly interested in any suggestions for improving work procedures or the work environment in the Company.<br><br>
+
+	______________________________________________________________________________________<br>
+
+	______________________________________________________________________________________<br>
+
+             <br>How may we contact you?<br><br>
+
+Telephone:<br>
+Address:<br>
+E-mail:<br><br>
+
+Thank you for participating and telling us about your experience.<br><br><br>
+
+
+
+
+Interviewer’s Signature&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspEmployee’s Signature
+
+Place :<br>
+
+Date :
+
+
+             <hr class='hrItem' />
+         </div>
+     </div>
+     </body>
+ </html>

@@ -1,0 +1,87 @@
+<html>
+     <head>
+         <title>Title</title>
+         <style type="text/css">
+             body {
+                 font-weight: 200;
+                 font-size: 14px;
+             }
+             .header {
+                 font-size: 20px;
+                 font-weight: 100;
+                 text-align: center;
+                 color: #007cae;
+             }
+             .title {
+                 font-size: 22px;
+                 font-weight: 100;
+                /* text-align: right;*/
+                padding: 10px 20px 0px 20px;
+             }
+             .title span {
+                 color: #007cae;
+             }
+             .details {
+                 padding: 10px 20px 0px 20px;
+                 text-align: left !important;
+                 /*margin-left: 40%;*/
+             }
+             .hrItem {
+                 border: none;
+                 height: 1px;
+                 /* Set the hr color */
+                 color: #333; /* old IE */
+                 background-color: #fff; /* Modern Browsers */
+             }
+         </style>
+     </head>
+     <body>
+         <div class='wrapper'>
+             <div class='header'>
+                 <p class='title'>JOINING LETTER </p>
+             </div>
+         <div>
+         <div class='details'>
+             {% for empl in emp1.employment_set.all %}
+
+             From:  <b><u>{{ empl.Date_of_Joining }}</u></b><BR><BR>
+
+             {% endfor %}
+
+
+
+To<br>
+The General Manager,<br>                                                                                                                                               Vinayak Autotrade Pvt Ltd, <br>                                                                                                                                   Krishnagar.<br>
+Respected Sir,<br>
+             I would like to draw your attention towards your offer letter dtd
+
+             <b><u>{{ emp1.Employee_name }}</u></b>
+
+for the
+<br> post issued in my favour by your goodself. I confirm acceptance of your offer and am joining <br>
+your esteemed organisation from today in the post of
+
+             {% for empl in emp1.employment_set.all %}
+
+             <b><u>{{ empl.Designation }}</u></b>
+
+             {% endfor %}
+
+             and
+<br>hereby reporting to G.M/you/HR/DSM/TL/WM/Spare Parts Manager/Accts. Manager.<br><br>
+I further confirm that, I have read the offer letter carefully and understood and shall abide by all
+<br>the clauses as mentioned therein.<br><br>
+    As desired, I am enclosing herewith copies of my following documents as desired by you.<br><br>
+Thanking you,<br><br>
+Yours faithfully,<br><br><br>
+
+
+1. One copy of passport size photograph<br>
+2. Voter card and Aadhar card<br>
+3. Educational and Experience Certificates.<br>
+
+             <hr class='hrItem' />
+         </div>
+     </div>
+     </body>
+ </html>

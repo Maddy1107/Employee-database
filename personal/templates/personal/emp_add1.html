@@ -1,0 +1,63 @@
+{% extends 'personal/home.html' %}
+
+{% block content %}
+<style xmlns="http://www.w3.org/1999/html">
+    td,table,th
+    {
+        text-align: center;
+    }
+    b
+    {
+        text-decoration: none;
+    }
+    .table
+    {
+        border: 1px solid #2980B9;
+    }
+    .table thead > tr > th
+    {
+        border-bottom: none;
+    }
+    .table thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th, .table thead > tr > td, .table tbody > tr > td, .table tfoot > tr > td
+    {
+        border: 1px solid #2980B9;
+    }
+    .table-hover
+    {
+        color: black;
+    }
+</style>
+<div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th bgcolor="#f0e68c"><center><h3><strong>EMPLOYEES</strong></h3></center></th>
+                    </tr>
+                </thead>
+            </table>
+            <table class="table table-hover">
+                <thead>
+                    <tr class="danger">
+                        <th>SEARCH BY ID</th>
+                        <th>SEARCH BY NAME</th>
+                    </tr>
+                </thead>
+
+{% if all_emp %}
+    {% for emp in all_emp %}
+
+                <tr class="info">
+                    <td><h4><a href="{% url 'personal:detail' emp.Employee_id %}"><b>{{ emp.Employee_id }}</b></a></h4></td>
+                    <td><h4><a href="{% url 'personal:detail' emp.Employee_id %}"><b>{{ emp.Employee_name }}</b></a></h4></td>
+
+                </tr>
+    {% endfor %}
+            </table>
+{% else %}
+    <h3>You dont have any employees.</h3>
+{% endif %}
+
+
+</center>
+</div>
+{% endblock %}

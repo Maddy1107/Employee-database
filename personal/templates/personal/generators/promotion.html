@@ -1,0 +1,135 @@
+<html>
+     <head>
+         <title>Title</title>
+         <style type="text/css">
+             body {
+                 font-weight: 200;
+                 font-size: 14px;
+             }
+             .header {
+                 font-size: 20px;
+                 font-weight: 100;
+                 text-align: center;
+                 color: #007cae;
+             }
+             .title {
+                 font-size: 22px;
+                 font-weight: 100;
+                /* text-align: right;*/
+                padding: 10px 20px 0px 20px;
+             }
+             .title span {
+                 color: #007cae;
+             }
+             .details {
+                 padding: 10px 20px 0px 20px;
+                 text-align: left !important;
+                 /*margin-left: 40%;*/
+             }
+             .hrItem {
+                 border: none;
+                 height: 1px;
+                 /* Set the hr color */
+                 color: #333; /* old IE */
+                 background-color: #fff; /* Modern Browsers */
+             }
+             .date
+             {
+                 text-align: right;
+             }
+             .body1
+             {
+                text-align: justify;
+                text-justify: inter-word;
+             }
+         </style>
+     </head>
+     <body>
+         <div class='wrapper'>
+             <div class='header'>
+                 <p class='title'>PROMOTION LETTER </p>
+             </div>
+         <div>
+         <div class='details'>
+
+             <div class="date">Dated : <u>{% now "d-m-y" %}.</u></div><br>
+Name		:<b><u>{{ emp1.Employee_name }}</u></b><br>
+Employee ID	:<b><u>{{ emp1.Employee_id }}</u></b><br>
+Designation	:{% for empl in emp1.employment_set.all %}
+
+             <b><u>{{ empl.Designation }}</u></b>
+
+             {% endfor %}<br><br>
+
+Dear Mr. <b><u>{{ emp1.Employee_name }}</u></b><br><br>
+
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspWe are pleased to inform you that based on your performance Company is pleased to inform you that you have been promoted as
+
+             {% for empl in emp1.employment_set.all %}
+
+             <b><u>{{ empl.Designation }}</u></b>
+
+             {% endfor %}
+
+. The Management has decided to revise your salary as under ….<br><br>
+
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    Basic Salary
+                         {% for empl in emp1.employment_set.all %}
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                         Rs. <b>{% widthratio empl.Present_Salary 2 1  %}</b>
+
+                         {% endfor %}
+             <br><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    House Rent Allowance
+                         {% for empl in emp1.employment_set.all %}
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                         Rs. <b>{% widthratio empl.Present_Salary  4 1 %}</b>
+
+                         {% endfor %}
+             <br><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    Refreshment Allowance
+                         {% for empl in emp1.employment_set.all %}
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                         Rs. <b>{% widthratio empl.Present_Salary  8 1 %}</b>
+
+                         {% endfor %}
+             <br><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    Conveyance Allowance
+                         {% for empl in emp1.employment_set.all %}
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                         Rs. <b>{% widthratio empl.Present_Salary  8 1 %}</b>
+
+                         {% endfor %}
+             <br><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    Total Rs
+                         {% for empl in emp1.employment_set.all %}
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                         Rs. <b>{{ empl.Present_Salary }}</b>
+
+                         {% endfor %}
+             <br><br>
+
+
+All other terms and conditions of your appointment will however remain the same. <br><br>
+
+The compensation package offered to you by the Company should be kept strictly confidential. You are advised not to share information regarding the salary and benefits/amenities with anyone.
+
+<br><br><br>
+With Best Wishes,<br>
+For Vinayak Autotrade Pvt. Ltd.,<br><br><br>
+
+
+(Srimanta Chakravarty)<br>
+Authorized signatory
+
+
+             <hr class='hrItem' />
+         </div>
+     </div>
+     </body>
+ </html>

@@ -1,0 +1,22 @@
+{% extends 'personal/home4.html' %}
+{% block content %}
+{% load bootstrap %}
+<div class = "container-fluid">
+    <form role="form"  action = "" method = "post" enctype="multipart/form-data">
+        <legend>REFERENCES</legend>
+        {% csrf_token%}
+        {{ form|bootstrap_horizontal }}<br><br>
+        <div class = "form-group">
+            <div class = "col-sm-onset-5 col-sm-5">
+                <br>
+                <center>
+
+                        <button type = "submit" class = "btn btn-success">Save</button>
+                        <a type="button" href="{% url 'personal:success' %}" class = "btn btn-success">Next Page</a>
+                </center>
+            </div>
+            </div>
+    </form>
+</div>
+
+{% endblock %}

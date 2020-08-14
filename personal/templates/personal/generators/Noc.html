@@ -1,0 +1,112 @@
+<html>
+     <head>
+         <title>Title</title>
+         <style type="text/css">
+             body {
+                 font-weight: 200;
+                 font-size: 14px;
+             }
+             .header {
+                 font-size: 20px;
+                 font-weight: 100;
+                 text-align: center;
+                 color: #007cae;
+             }
+             .title {
+                 font-size: 22px;
+                 font-weight: 100;
+                /* text-align: right;*/
+                padding: 10px 20px 0px 20px;
+             }
+             .title span {
+                 color: #007cae;
+             }
+             .details {
+                 padding: 10px 20px 0px 20px;
+                 text-align: left !important;
+                 /*margin-left: 40%;*/
+             }
+             .hrItem {
+                 border: none;
+                 height: 1px;
+                 /* Set the hr color */
+                 color: #333; /* old IE */
+                 background-color: #fff; /* Modern Browsers */
+             }
+             .date
+             {
+                 text-align: right;
+             }
+             .body1
+             {
+                text-align: justify;
+                text-justify: inter-word;
+             }
+         </style>
+     </head>
+     <body>
+         <div class='wrapper'>
+             <div class='header'>
+                 <p class='title'>NOC </p>
+             </div>
+         <div>
+         <div class='details'>
+
+             <div class="date">Dated : <u>{% now "d-m-y" %}.</u></div><br>
+TO WHOM IT MAY CONCERN<br>
+
+<p class="body1">This is to certify that, Mr
+
+    <b><u>{{ emp1.Employee_name }}</u></b>
+
+    , son of <br>
+
+<b><u>{{ emp1.Fathers_name }}</u></b>
+
+    of
+
+    <b><u>{{ emp1.Present_Address }}</u></b> ,
+
+<br>
+was working with us as
+
+    {% for empl in emp1.employment_set.all %}
+
+    <b><u>{{ empl.Designation }}</u></b>
+
+    {% endfor %}
+
+from
+
+    {% for empl in emp1.employment_set.all %}
+
+    <b><u>{{ empl.Date_of_Joining }}</u></b>
+
+    {% endfor %}
+
+to
+
+    {% for empl in emp1.employment_set.all %}
+
+    <b><u>{{ empl.Last_working_day }}</u></b>
+
+    {% endfor %}.
+
+Prior to that he was <br>
+under training from
+
+    ______________.. to ________________..<br><br>
+
+
+He is an efficient worker and we have nothing against him.<br><br><br></p>
+
+We wish him all success in his future venture.<br><br>
+For Vinayak Autotrade Pvt. Ltd.<br><br><br>
+
+Srimanta Chakraborty – head HR/Admin.
+
+             <hr class='hrItem' />
+         </div>
+     </div>
+     </body>
+ </html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>VINAYAK AUTOTRADE</title>
+	<meta charset="utf-8" />
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'personal/css/bootstrap.min.css' %}" type = "text/css"/>
+	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<style type="text/css">
+		html,
+		body {
+		  height:100%
+		}
+		strong
+		{
+			color: #bc3302;
+		}
+		.navbar
+		{
+			min-height: 70px;
+		}
+		.navbar-collapse > li > a {
+			padding-top: 0px;
+			padding-bottom: 0px;
+			line-height: 50px;
+		}
+		.navbar-brand
+		{
+			padding: 5px;
+		}
+		.glyphicon
+		{
+			font-size:large;
+		}
+	</style>
+</head>
+
+
+<nav class="navbar navbar-inverse ">
+  <div class="container-fluid">
+      <h2><strong><center>VINAYAK AUTOTRADE PVT. LTD.</center></strong></h2>
+  </div>
+</nav>
+
+
+
+<body class="body" style="background-color: silver;">
+
+			<div class='container-fluid'>
+			<br><br>
+			   {% block content %}
+			   {% endblock %}
+
+			</div>
+
+</body>
+
+</html>

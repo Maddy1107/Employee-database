@@ -1,0 +1,63 @@
+{% extends 'personal/home4.html' %}
+
+{% block content %}
+<style>
+    panel-heading
+    {
+        width: 50px;
+    }
+    table,tr,td
+    {
+        border: 3px solid black;
+        text-align: center;
+    }
+    p.uppercase
+    {
+        text-transform: uppercase;
+    }
+    hr
+    {
+        display: block;
+        width: 50%;
+        border-color: black;
+        padding: 2px;
+        border-top: dotted;
+    }
+    a
+    {
+       text-decoration: none;
+    }
+</style>
+<center>
+    <strong><h3><b><p class="uppercase">GENERATING LETTERS FOR EMPLOYEE : {{ emp.Employee_name }}</p></b></h3></strong>
+    <hr>
+    <div class="panel-group">
+  <div class="panel panel-primary">
+      <div class="panel-heading">
+            <h3>Choose which letter/form you want to generate!!</h3>
+      </div>
+
+      <div class="panel-body">
+
+          <table class="table table-responsive">
+              <thead>
+              <tr class="danger">
+                  <td><a href="{% url 'personal:pdf4' emp.Employee_id %} "><h4>OFFER LETTER</h4></a></td><br>
+                  <td><a href="{% url 'personal:pdf2' emp.Employee_id %} "><h4>CONFIRMATION LETTER</h4></a></td>
+                  <td><a href="{% url 'personal:pdf' emp.Employee_id %} "><h4>JOINING LETTER</h4></a></td>
+                  <td><a href="{% url 'personal:pdf5' emp.Employee_id %} "><h4>EXIT INTERVIEW FORM</h4></a></td>
+                  <td><a href="{% url 'personal:pdf1' emp.Employee_id %} "><h4>NOC</h4></a></td>
+                  <td><a href="{% url 'personal:pdf3' emp.Employee_id %} "><h4>CHANGE OF DEPARTMENT</h4></a></td>
+                  <td><a href="{% url 'personal:pdf6' emp.Employee_id %} "><h4>INCREMENT LETTER</h4></a></td>
+                  <td><a href="{% url 'personal:pdf7' emp.Employee_id %} "><h4>TRANSFER LETTER</h4></a></td>
+                  <td><a href="{% url 'personal:pdf8' emp.Employee_id %} "><h4>PROMOTION LETTER</h4></a></td>
+
+              </tr>
+              </thead>
+          </table>
+
+      </div>
+  </div>
+  </div>
+</center>
+{% endblock %}

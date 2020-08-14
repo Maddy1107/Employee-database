@@ -1,0 +1,122 @@
+<html>
+     <head>
+         <title>Title</title>
+         <style type="text/css">
+             body {
+                 font-weight: 200;
+                 font-size: 14px;
+             }
+             .header {
+                 font-size: 20px;
+                 font-weight: 100;
+                 text-align: center;
+                 color: #007cae;
+             }
+             .title {
+                 font-size: 22px;
+                 font-weight: 100;
+                /* text-align: right;*/
+                padding: 10px 20px 0px 20px;
+             }
+             .title span {
+                 color: #007cae;
+             }
+             .details {
+                 padding: 10px 20px 0px 20px;
+                 text-align: left !important;
+                 /*margin-left: 40%;*/
+             }
+             .hrItem {
+                 border: none;
+                 height: 1px;
+                 /* Set the hr color */
+                 color: #333; /* old IE */
+                 background-color: #fff; /* Modern Browsers */
+             }
+             .date
+             {
+                 text-align: right;
+             }
+             .body1
+             {
+                text-align: justify;
+                text-justify: inter-word;
+             }
+         </style>
+     </head>
+     <body>
+         <div class='wrapper'>
+             <div class='header'>
+                 <p class='title'>CONFIRMATION LETTER </p>
+             </div>
+         <div>
+         <div class='details'>
+
+             <div class="date">DATE : {% for empl in emp1.employment_set.all %}
+
+                                      <b><u>{{ empl.Date_of_Joining }}</u></b><BR><BR>
+
+                                      {% endfor %}</div><br>
+
+Name:<B>{{ emp1.Employee_name }}</B><br>
+Employee ID:<b>{{ emp1.Employee_id }}</b><br>
+
+Designation	:{% for empl in emp1.employment_set.all %}
+
+             <b>{{ empl.Designation }}</b>
+
+             {% endfor %}<br><br>
+
+
+<b><u>Sub: Letter of Confirmation</u></b><br><br>
+
+
+Dear Sir/madam,<br><br>
+
+We have pleasure to convey you that you have completed your probation period satisfactorily <br>
+and the Management has pleased to confirm your employment as
+
+             {% for empl in emp1.employment_set.all %}
+
+             <b><u>{{ empl.Designation }}</u></b>
+
+             {% endfor %}
+
+. with <br>
+effect from
+
+    {% for empl in emp1.employment_set.all %}
+
+    <b><u>{{ empl.Date_of_Joining }}</u></b>
+
+    {% endfor %}.
+             <br><br>
+
+This confirmation is in recognition of the fine work you have done for this company. We are <br>
+very confident that you will meet the responsibilities the same level of enthusiasm and enterprise<br>
+which you have exhibited since you came to work with our company.<br><br>
+
+Please accept our personal congratulations on this well-deserved recognition of your continuing<br>
+excellent contributions and work commitment.<br><br>
+
+
+Congratulations and best wishes!<br><br><br><br>
+
+
+
+
+
+
+
+For the Vinayak Autotrade Pvt Ltd.<br><br><br>
+
+
+
+Authorized Signatory
+
+
+             <hr class='hrItem' />
+         </div>
+     </div>
+     </body>
+ </html>

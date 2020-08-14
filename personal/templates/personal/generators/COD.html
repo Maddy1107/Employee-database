@@ -1,0 +1,116 @@
+<html>
+     <head>
+         <title>Title</title>
+         <style type="text/css">
+             body {
+                 font-weight: 200;
+                 font-size: 14px;
+             }
+             .header {
+                 font-size: 20px;
+                 font-weight: 100;
+                 text-align: center;
+                 color: #007cae;
+             }
+             .title {
+                 font-size: 22px;
+                 font-weight: 100;
+                /* text-align: right;*/
+                padding: 10px 20px 0px 20px;
+             }
+             .title span {
+                 color: #007cae;
+             }
+             .details {
+                 padding: 10px 20px 0px 20px;
+                 text-align: left !important;
+                 /*margin-left: 40%;*/
+             }
+             .hrItem {
+                 border: none;
+                 height: 1px;
+                 /* Set the hr color */
+                 color: #333; /* old IE */
+                 background-color: #fff; /* Modern Browsers */
+             }
+             .date
+             {
+                 text-align: right;
+             }
+             .body1
+             {
+                text-align: justify;
+                text-justify: inter-word;
+             }
+         </style>
+     </head>
+     <body>
+         <div class='wrapper'>
+             <div class='header'>
+                 <p class='title'>CONFIRMATION LETTER </p>
+             </div>
+         <div>
+         <div class='details'>
+
+             <div class="date">DATE : <u>{% now "d-m-y" %}.</u></div><br>
+
+Name:<B>{{ emp1.Employee_name }}</B><br>
+Employee ID:<b>{{ emp1.Employee_id }}</b><br>
+
+Designation	:{% for empl in emp1.employment_set.all %}
+
+             <b>{{ empl.Designation }}</b>
+
+             {% endfor %}<br><br>
+
+
+<b><u>Sub: Change of Department</u></b><br><br>
+
+
+Dear Mr.,<B>{{ emp1.Employee_name }}</B><br><br>
+
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspWe have pleasure to convey you that you have completed your probation period satisfactorily
+and the Management has pleased to confirm your employment & now you have been transferred
+& confirmed the post of
+
+             {% for empl in emp1.employment_set.all %}
+
+             <b>{{ empl.Designation }}</b>
+
+             {% endfor %}
+
+.wef
+             {% for empl in emp1.employment_set.all %}
+
+             <b>{{ empl.Date_of_Joining }}</b>
+
+             {% endfor %}<br><br>
+
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspWe are very confident that you will meet the new responsibilities with same level of enthusiasm
+and enterprise which you have exhibited since you came to work with our company.
+
+Please accept our personal congratulations on this well-deserved recognition of your continuing excellent contributions and work commitment.
+
+
+
+Congratulations and best wishes!<br><br><br><br>
+
+
+
+
+
+
+
+For the Vinayak Autotrade Pvt Ltd.<br><br><br>
+
+
+
+Authorized Signatory
+
+
+             <hr class='hrItem' />
+         </div>
+     </div>
+         </div>
+     </body>
+ </html>

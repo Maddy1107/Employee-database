@@ -1,0 +1,352 @@
+{% extends 'personal/home4.html' %}
+
+{% block content %}
+<style>
+    .table-hover
+    {
+        color: black;
+    }
+    th,td
+    {
+        text-align: center;
+    }
+    .table
+    {
+        border: 1px solid #2980B9;
+    }
+    .table thead > tr > th
+    {
+        border-bottom: none;
+    }
+    .table thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th, .table thead > tr > td, .table tbody > tr > td, .table tfoot > tr > td
+    {
+        border: 1px solid #2980B9;
+    }
+    hr
+    {
+        display: block;
+        width : 50%;
+        border-color: black;
+        padding: 2px;
+        border-top: dotted;
+    }
+    p.uppercase
+    {
+        text-transform: uppercase;
+    }
+</style>
+
+<center><strong><h3><b><p class="uppercase">DETAILS OF EMPLOYEE : {{ emp.Employee_name }}</p></b></h3></strong></center>
+
+<hr style="border-top: dashed">
+
+<div class = "table-responsive">
+
+    <!--PERSONAL-->
+
+    <table class = "table ">
+
+        <tr>
+
+                <th bgcolor="#f0e68c"><center>PERSONAL DETAILS</center></th>
+
+        </tr>
+
+    </table>
+
+    <table class="table table-hover">
+
+        <thead>
+            <tr class="danger">
+                 <th>Employee id</th>
+                 <th>Employee name</th>
+                 <th>Father's Name</th>
+                 <th>Date-Of-Birth</th>
+                 <th>Gender</th>
+                 <th>Present Address </th>
+                 <th>Permanent Address</th>
+                 <th>Residential Contact No.</th>
+                 <th>Permanent Contact No.</th>
+                 <th>Email Id</th>
+                 <th>Marital Status
+                 <th>Marriage Date </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr class="info">
+                 <td>{{emp.Employee_id }}</td>
+                 <td>{{emp.Employee_name}}</td>
+                 <td>{{emp.Fathers_name}}</td>
+                 <td>{{emp.Date_Of_Birth}}</td>
+                 <td>{{emp.Gender}}</td>
+                 <td>{{emp.Present_Address}} </td>
+                 <td>{{emp.Permanent_Address}}</td>
+                 <td>{{emp.Residential_Contact_No}}</td>
+                 <td>{{emp.Permanent_Contact_No}}</td>
+                 <td>{{emp.Email_id}}</td>
+                 <td>{{emp.Marital_Status}}</td>
+                 <td>{{emp.Marriage_Date }}</td>
+            </tr>
+         </tbody>
+
+    </table>
+
+<hr width="50%" style="border-color: black">
+
+<!--FAMILY-->
+
+    <table class = "table">
+
+        <tr>
+
+                <th bgcolor="#f0e68c"><center>FAMILY DETAILS</center></th>
+
+        </tr>
+
+    </table>
+
+    <table class="table table-hover">
+
+        <thead>
+            <tr class="danger">
+                 <th>Name</th>
+                 <th>Date-Of-Birth</th>
+                 <th>Gender</th>
+                 <th>Relationship</th>
+                 <th>Occupation</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for fam in emp.family_set.all %}
+            <tr class="info">
+                 <td>{{fam.Name}}</td>
+                 <td>{{fam.Date_of_Birth}}</td>
+                 <td>{{fam.Gender}}</td>
+                 <td>{{fam.Relationship}} </td>
+                 <td>{{fam.Occupation}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+
+
+
+      </table>
+
+
+<hr>
+
+<!--MEDICAL-->
+
+
+
+    <table class = "table">
+
+        <tr>
+
+                <th bgcolor="#f0e68c"><center>MEDICAL CONDITION</center></th>
+
+        </tr>
+
+    </table>
+
+    <table class="table table-hover">
+        <thead>
+            <tr class="danger">
+                 <th>Blood Group</th>
+                 <th>Ailments</th>
+                 <th>Allergies</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for m in emp.med_set.all %}
+            <tr class="info">
+                  <td>{{m.Blood_group}}</td>
+                  <td>{{m.Ailments}}</td>
+                  <td>{{m.Allergies}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+<hr>
+
+
+
+
+<!--EMERGENCY-->
+
+
+
+    <table class = "table">
+
+        <tr>
+
+                <th bgcolor="#f0e68c"><center>EMERGENCY CONTACTS</center></th>
+
+        </tr>
+
+    </table>
+
+    <table class="table table-hover">
+
+        <thead>
+            <tr class="danger">
+                 <th>Contact person name</th>
+                 <th>Relation</th>
+                 <th>Landline No.</th>
+                 <th>Mobile No.</th>
+            </tr>
+        </thead>
+
+        {% for e in emp.emergency_set.all %}
+        <tr class="info">
+                  <td>{{e.Contact_person_name}}</td>
+                  <td>{{e.Relation}}</td>
+                  <td>{{e.Landline_No}}</td>
+                  <td>{{e.Mobile_No}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+<hr>
+
+
+
+
+<!--EDUCATION-->
+
+
+
+    <table class = "table">
+
+        <tr>
+
+                <th bgcolor="#f0e68c"><center>QUALIFICATION</center></th>
+
+        </tr>
+
+    </table>
+
+    <table class="table table-hover">
+
+        <thead>
+            <tr class="danger">
+                 <th>Degree/Diploma/Certificate</th>
+                 <th>Institute/University</th>
+                 <th>From</th>
+                 <th>To</th>
+                 <th>Percentage</th>
+            </tr>
+        </thead>
+
+        {% for edu in emp.education_set.all %}
+        <tr class="info">
+                  <td>{{edu.Degree}}</td>
+                  <td>{{edu.Institute}}</td>
+                  <td>{{edu.From}}</td>
+                  <td>{{edu.To}}</td>
+                  <td>{{edu.Percentage}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+<hr>
+
+
+
+<!--EMPLOYMENT-->
+
+    {% for empl in emp.employment_set.all %}
+
+    <table class = "table">
+
+        <tr>
+
+                <th bgcolor="#f0e68c"><center>EMPLOYMENT DETAILS</center></th>
+
+        </tr>
+
+    </table>
+
+    <table class="table table-hover">
+
+        <thead>
+            <tr class="danger">
+                 <th>Date Of Joining</th>
+                 <th>Department</th>
+                 <th>Designation</th>
+                 <th>Pan No.</th>
+                 <th>Epic A/C No.</th>
+                 <th>Aadhar Card No.</th>
+                 <th>Bank A/C No.</th>
+                 <th>PF A/C No.</th>
+                 <th>ESIC No.</th>
+                 <th>Reporting Person</th>
+                 <th>Joining Salary</th>
+                 <th>Present Salary</th>
+                 <th>Last Date Of Increment</th>
+                 <th>Employee Status</th>
+            </tr>
+        </thead>
+
+        <tr class="info">
+                  <td>{{empl.Date_of_Joining}}</td>
+                  <td>{{empl.Department}}</td>
+                  <td>{{empl.Designation}}</td>
+                  <td>{{empl.Pan_no}}</td>
+                  <td>{{empl.Epic_no}}</td>
+                  <td>{{empl.Aadhar_card_no}}</td>
+                  <td>{{empl.Bank_acc_no}}</td>
+                  <td>{{empl.PF_acc_no}}</td>
+                  <td>{{empl.ESIC_no}}</td>
+                  <td>{{empl.Reporting_person}}</td>
+                  <td>{{empl.Joining_Salary}}</td>
+                  <td>{{empl.Present_Salary}}</td>
+                  <td>{{empl.Last_date_of_increment}}</td>
+                  <td>{{empl.Employee_status}}</td>
+
+        </tr>
+    </table>
+<hr>
+    {% endfor %}
+
+
+
+<!--REFERENCES-->
+
+
+
+    <table class = "table">
+
+        <tr>
+
+                <th bgcolor="#f0e68c"><center>REFERENCES</center></th>
+
+        </tr>
+
+    </table>
+
+    <table class="table table-hover">
+
+        <thead>
+            <tr class="danger">
+                 <th>Name</th>
+                 <th>Contact No.</th>
+            </tr>
+        </thead>
+
+        {% for refe in emp.references_set.all %}
+        <tr class="info">
+                  <td>{{refe.Name}}</td>
+                  <td>{{refe.Contact_No}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,108 @@
+<html>
+     <head>
+         <title>Title</title>
+         <style type="text/css">
+             body {
+                 font-weight: 200;
+                 font-size: 14px;
+             }
+             .header {
+                 font-size: 20px;
+                 font-weight: 100;
+                 text-align: center;
+                 color: #007cae;
+             }
+             .title {
+                 font-size: 22px;
+                 font-weight: 100;
+                /* text-align: right;*/
+                padding: 10px 20px 0px 20px;
+             }
+             .title span {
+                 color: #007cae;
+             }
+             .details {
+                 padding: 10px 20px 0px 20px;
+                 text-align: left !important;
+                 /*margin-left: 40%;*/
+             }
+             .hrItem {
+                 border: none;
+                 height: 1px;
+                 /* Set the hr color */
+                 color: #333; /* old IE */
+                 background-color: #fff; /* Modern Browsers */
+             }
+             .date
+             {
+                 text-align: right;
+             }
+             .body1
+             {
+                text-align: justify;
+                text-justify: inter-word;
+             }
+         </style>
+     </head>
+     <body>
+         <div class='wrapper'>
+             <div class='header'>
+                 <p class='title'>TRANSFER LETTER </p>
+             </div>
+         <div>
+         <div class='details'>
+
+             <div class="date">Dated : <u>{% now "d-m-y" %}.</u></div><br>
+Name		:<b><u>{{ emp1.Employee_name }}</u></b><br>
+Employee ID	:<b><u>{{ emp1.Employee_id }}</u></b><br>
+Designation	:{% for empl in emp1.employment_set.all %}
+
+             <b><u>{{ empl.Designation }}</u></b>
+
+             {% endfor %}<br><br>
+
+Dear Mr. <b><u>{{ emp1.Employee_name }}</u></b><br><br>
+
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+
+
+As decided by the Management you are being transferred from
+             {% for empl in emp1.employment_set.all %}
+
+             <b><u>{{ empl.Location }}</u></b>
+
+             {% endfor %}
+
+to
+             {% for empl in emp1.employment_set.all %}
+
+             <b><u>{{ empl.Transfer_to }}</u></b>
+
+             {% endfor %}
+
+wef:
+             {% for empl in emp1.employment_set.all %}
+
+             <b><u>{{ empl.Transfer_date }}</u></b>
+
+             {% endfor %}.
+
+However your remuneration package remains unchanged.<br><br>
+
+Wish you all the best for your new assignment<br><br><br>
+
+
+Regards,<br>
+For Vinayak Autotrade Pvt. Ltd.,<br><br><br>
+
+
+(Srimanta Chakravarty)<br>
+Authorized signatory
+
+
+             <hr class='hrItem' />
+         </div>
+     </div>
+     </body>
+ </html>
